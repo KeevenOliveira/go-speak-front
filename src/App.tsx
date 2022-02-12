@@ -1,16 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import io from "socket.io-client";
 
-
-const socket = io("http://localhost:8001");
-socket.on("connect", () => console.log("entrou!"));
 function App() {
+  const socket = io("http://localhost:8080");
+  socket.on('connection', (socket) => {
+    console.log(socket);
+    console.log('Hello World!')
+  })
 
-  useEffect(() => {
-    // const message = () => {
-
-    // }
-  }, []);
+  console.log(socket.active);
 
   return (
     <>
