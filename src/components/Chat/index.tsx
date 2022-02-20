@@ -25,7 +25,11 @@ const Chat = () => {
         const socket = io("http://localhost:8080");
         console.log('enviou!');
         console.log('message:', messageSender);
-        socket.emit('new_messages', { owner: 'Keeven Oliveira', message: messageSender })
+        socket.emit('new_messages', {
+            id: 'k21jb87412bkjh',
+            owner: 'Keeven Oliveira',
+            message: messageSender
+        })
         socket.on('connection', (messagesArray: [IMessages]) => {
             console.log('Hello with chat!')
             setMessages(messagesArray);
